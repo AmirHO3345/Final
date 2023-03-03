@@ -1,0 +1,313 @@
+
+.HeaderPage {
+  position: sticky;
+  width : 100% ;
+  z-index: $TopLayer ;
+  top: 0 ;
+  left: 0 ;
+  box-shadow: $DarkShadow;
+
+  &__Wrap {
+    width: 100% ;
+    background-color: $BlackColor;
+
+    &--NewsTicker {
+      background-color: $WhiteColor ;
+    }
+  }
+
+  &__Head {
+    display: flex ;
+    align-items: center ;
+    justify-content: space-between ;
+    padding: 1rem 0;
+
+    .Head {
+
+      &__Logo {
+        @include LogoWebSite ;
+      }
+
+      &__IconContent {
+        flex: 1 ;
+        position: relative;
+      }
+
+      &__Icons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1.8rem;
+        gap: 2rem;
+      }
+
+      &__Icon {
+        @include IconPrepare ;
+        background-color: $LightGrayColor ;
+
+        &--Mobile {
+          display: none;
+        }
+
+        &:hover {
+          background-color: $PrimaryColor;
+          color : $WhiteColor ;
+        }
+      }
+
+      &__Search {
+        position: absolute;
+        width: 90% ;
+        bottom : -0.8rem ;
+        right : 0 ;
+        visibility: hidden ;
+        opacity: 0;
+        transition: all .3s ;
+
+        &.Open {
+          visibility: visible ;
+          opacity: 1;
+        }
+
+        .Form--WebSiteSearch {
+
+          .Form__Input {
+            background-color: $GrayColor ;
+            color : $WhiteColor ;
+          }
+
+          .Form__Input::placeholder {
+            color: $WhiteColor;
+          }
+        }
+
+        .Head__Icon {
+          position: absolute;
+          top : 50% ;
+          left : -1rem ;
+          transform: translate(-100% , -50%);
+        }
+
+      }
+    }
+  }
+
+  &__Navs {
+    flex: 1;
+
+    > ul {
+      display: flex;
+      gap: 5rem;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+
+  &__Nav {
+    position: relative;
+
+    &.Active ,
+    &:hover {
+
+      > a {
+        color: $PrimaryColor;
+      }
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    > a {
+      display: block;
+      padding: 2rem;
+      color : $GrayColor;
+      cursor: pointer;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 4px;
+      background-color: $PrimaryColor;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      transform: translateX(-50%);
+      transition: width .2s;
+    }
+
+    &:hover {
+
+      > .HeaderPage__DropDown {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+  }
+
+  &__DropDown {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: $PrimaryShadow;
+    visibility: hidden;
+    opacity: 0;
+    z-index: $MiddleLayer;
+    transition: all .3s;
+
+    &--Main {
+      top: 100%;
+      left: 0;
+      border-bottom-left-radius: 10px;
+    }
+
+    &--Sub {
+      top : 0 ;
+      left: calc(100% + .5rem) ;
+      border-radius: 0 10px 10px 10px;
+    }
+
+    .DropDown {
+
+      &__List {
+        display: flex;
+        flex-direction: column;
+        gap : 1rem ;
+      }
+
+      &__Item {
+        position: relative ;
+        cursor: pointer;
+        padding: 0.5rem 8rem 0.5rem 2rem ;
+        text-transform: capitalize;
+        color : $GrayColor ;
+
+        > a {
+          display: flex ;
+          gap: 1rem ;
+          font-size: 1.6rem ;
+          color : $GrayColor ;
+          transition: color .3s ;
+
+          i {
+            display: flex;
+            width: 2rem;
+            justify-content: center;
+          }
+        }
+
+        > i {
+          position: absolute ;
+          top: 50% ;
+          right: .5rem ;
+          transform: translate(-50% , -50%);
+        }
+
+        &:hover {
+
+          > a {
+            color : $PrimaryColor ;
+          }
+
+          > i {
+            color : $PrimaryColor ;
+          }
+
+          > .HeaderPage__DropDown {
+            visibility: visible;
+            opacity: 1 ;
+          }
+        }
+      }
+    }
+  }
+
+  &__NewsTicker {
+    display: flex ;
+    flex-direction: row-reverse;
+    justify-content: center ;
+    align-items: center ;
+    width: 100% ;
+    font-size: 1.6rem ;
+
+    .NewsTicker {
+
+      &__Title {
+        padding: 1.5rem 3rem ;
+        background-color: $RedColor ;
+        color : $WhiteColor ;
+      }
+
+      &__News {
+        flex : 1 ;
+        color : $GrayColor ;
+      }
+    }
+  }
+
+  @include ScreenResponsive(Small_Screen  ) {
+
+    &__Navs {
+      display: none ;
+    }
+
+    &__Head {
+
+      .Head {
+
+        &__Icons {
+          gap: 1rem;
+        }
+
+      }
+    }
+  }
+
+  @include ScreenResponsive(Phone) {
+
+    &__Head {
+
+      .Head {
+
+        &__Icon {
+          display: none ;
+
+          &--Mobile {
+            display: flex ;
+          }
+        }
+
+        &__Search {
+          display: none ;
+        }
+      }
+    }
+
+  }
+
+}
+
+@include Language(Arabic) {
+
+  .HeaderPage {
+
+    &__DropDown {
+      left: initial;
+      right: 0 ;
+
+      .DropDown {
+
+        &__Item {
+          padding: 0.5rem 2rem 0.5rem 8rem ;
+        }
+      }
+    }
+
+  }
+}

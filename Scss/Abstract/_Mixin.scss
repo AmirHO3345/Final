@@ -1,0 +1,59 @@
+
+/*-----------------------------
+  Responsive Project
+-----------------------------*/
+@mixin ScreenResponsive($BreakPoint) {
+  @if($BreakPoint == Phone) {
+    @media (max-width: 47.9em) { @content } // => 767px
+  } @else if($BreakPoint == Small_Screen) {
+    @media (max-width: 61.9em) { @content } // => 991.98px
+  } @else if($BreakPoint == Medium_Screen) {
+    @media (max-width: 74.9em) { @content } // => 1199.98
+  } @else if($BreakPoint == Large_Screen) {
+    @media (min-width: 75em) { @content } // => 1200
+  }
+}
+/*-----------------------------
+  Re-use Code
+-----------------------------*/
+@mixin IconPrepare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  color : $WhiteColor ;
+  transition: all .3s;
+}
+
+@mixin LogoWebSite {
+  a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    height: 5.5rem;
+
+    > img {
+      width : 100% ;
+      height : 100% ;
+    }
+
+    > h1 {
+      font-size: 2rem ;
+      color: $WhiteColor ;
+      font-weight: 700;
+    }
+  }
+}
+
+@mixin Language($Lang) {
+  @if ($Lang == Arabic) {
+    html[lang="ar-SY"] { @content }
+  }
+  @if ($Lang == English) {
+    html[lang="en_US"] { @content }
+  }
+}

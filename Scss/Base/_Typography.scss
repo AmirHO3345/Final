@@ -1,0 +1,30 @@
+
+html {
+
+  @include ScreenResponsive(Medium_Screen) {
+    font-size: 56.25%;
+  }
+
+  @include ScreenResponsive(Small_Screen) {
+    font-size: 50% ;
+  }
+
+  @include ScreenResponsive(Phone) {
+    font-size: 50% ;
+  }
+
+  @include ScreenResponsive(Large_Screen) {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  font-family: lato , sans-serif ;
+  color: $GrayColor ;
+  font-size: 1.6rem ;
+}
+
+a {
+  text-decoration: none;
+}
+

@@ -1,0 +1,63 @@
+
+* ,
+*::after ,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit ;
+}
+
+body {
+  box-sizing: border-box ;
+}
+
+ul {
+  list-style: none ;
+}
+
+h1,h2,h3,
+h4,h5,h6 {
+  margin : 0 ;
+}
+
+.Container {
+  width: 100% ;
+  margin: 0 auto;
+  padding: 0 1.5rem ;
+
+  @include ScreenResponsive(Medium_Screen) {
+    max-width: 96rem ;
+  }
+
+  @include ScreenResponsive(Small_Screen) {
+    max-width: 72rem ;
+  }
+
+  @include ScreenResponsive(Phone) {
+    max-width: 54rem ;
+  }
+
+  @include ScreenResponsive(Large_Screen) {
+    max-width: 114rem ;
+  }
+}
+
+embed {
+
+  @include ScreenResponsive(Phone) {
+    height: 25rem ;
+  }
+
+  @include ScreenResponsive(Small_Screen) {
+    height: 40rem ;
+  }
+
+  @include ScreenResponsive(Medium_Screen) {
+    height: 50rem ;
+  }
+
+  @include ScreenResponsive(Large_Screen) {
+    height: 55rem ;
+  }
+
+}

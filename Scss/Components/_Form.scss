@@ -1,0 +1,79 @@
+
+.Form {
+
+  &__Group {
+    position: relative;
+  }
+
+  &__Input {
+    width: 100% ;
+    height: 100% ;
+    outline: none ;
+    padding : 1.2rem 5rem 1.2rem 1rem ;
+    font-size: 1.8rem ;
+    font-weight: 500 ;
+    border: 2px solid transparent ;
+    border-radius: 5px ;
+    font-family: inherit ;
+    background-color: $LightGrayColor ;
+    transition: all .3s ease ;
+
+    &:focus ,
+    &:not(:placeholder-shown) {
+      border-color: $PrimaryColor;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $GrayColor ;
+    }
+  }
+
+  &--SearchForm ,
+  &--WebSiteSearch {
+
+    .Form_ButtonSearch {
+      position: absolute;
+      top: 50% ;
+      right: 1rem ;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      transform: translateY(-50%);
+
+      i {
+        @include IconPrepare ;
+        background-color: transparent;
+        font-size: 1.8rem;
+        color : $PrimaryColor;
+        transition: all .3s;
+      }
+
+      &:hover {
+        i {
+          background-color: $PrimaryColor;
+          color : $WhiteColor ;
+        }
+      }
+    }
+  }
+
+}
+
+@include Language(Arabic) {
+
+  .Form {
+
+    &__Input {
+      padding : 1.2rem 1rem 1.2rem 5rem ;
+    }
+
+    &--SearchForm ,
+    &--WebSiteSearch {
+
+      .Form_ButtonSearch {
+        left: 1rem ;
+        right: initial ;
+      }
+    }
+  }
+}

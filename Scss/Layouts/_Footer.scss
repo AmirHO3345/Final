@@ -1,0 +1,131 @@
+
+.FooterPage {
+  position: relative;
+  background-color: $BlackColor;
+  padding-top : 2.5rem ;
+
+  &__Wrap {
+
+    &--Policy {
+      background-color: $DarkGrayColor ;
+      padding: 1.5rem 0;
+    }
+  }
+
+  &__Info {
+    display: flex;
+    flex-wrap: wrap;
+    gap : 5rem ;
+    margin-bottom: 3rem;
+
+    > div {
+      flex : 1 ;
+
+      > h3 {
+        position: relative;
+        font-size: 2rem;
+        color: #F8F8F8;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+      }
+    }
+
+    &--Logo {
+      flex: 2 !important ;
+
+      a {
+        width: fit-content ;
+        margin-bottom: 1.5rem ;
+      }
+
+      p {
+        margin-bottom: 2.5rem ;
+      }
+
+      @include LogoWebSite ;
+    }
+
+    &--Contact {
+      line-height: 2;
+
+      > div:not(:last-child) {
+        margin-bottom: 1rem ;
+      }
+
+      i {
+        width: 2rem ;
+        height: 2rem ;
+        text-align: center ;
+        margin-right: 1rem ;
+      }
+    }
+
+    &--QuickLinks {
+
+      .QuickLinks {
+
+        > li {
+          font-size: 1.8rem;
+
+          &:not(:last-child) {
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        a {
+          color : #dfdcdc ;
+        }
+      }
+    }
+
+    &--Voting {
+
+      .Form {
+
+        &__Group {
+          margin-bottom: 2rem ;
+        }
+      }
+    }
+  }
+
+  &__Policy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &--CopyRight {
+      color : $WhiteColor ;
+
+      strong {
+        color : $SecondaryColor ;
+      }
+    }
+
+    &--Roles {
+      display: flex ;
+      gap: 2rem ;
+      align-items: center ;
+
+      a {
+        color : $PrimaryColor ;
+      }
+    }
+  }
+
+  @include ScreenResponsive(Small_Screen) {
+
+  }
+
+  @include ScreenResponsive(Phone) {
+
+    &__Info {
+      text-align: center ;
+
+      > div {
+        flex-basis: 100% ;
+      }
+    }
+  }
+}
